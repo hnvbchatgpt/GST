@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase vs GSTR-2B Reconciliation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ExcelJS for Excel export/import -->
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <!-- FileSaver for download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        body { font-family: "Bookman Old Style", serif; margin: 0; padding: 0; background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);}
+        .container { max-width: 1300px; margin: 38px auto; background: #fff; padding: 38px 38px 40px 38px; box-shadow: 0 5px 24px rgba(0,0,0,0.12); border-radius: 18px;}
+        h1 { text-align: center; font-size: 2.6em; font-weight: bold; margin-bottom: 22px; color: #08509c; letter-spacing: 1.2px;}
+        .section { margin-bottom: 32px;}
+        label { display: block; font-weight: bold; margin-top: 12px; margin-bottom: 4px; color: #174c75; font-size: 1.1em; letter-spacing: 0.5px;}
+        input, select { padding: 8px 12px; width: 98%; border-radius: 5px; border: 1px solid #bfc7d1; font-size: 1.06em; font-family: "Bookman Old Style", serif; background: #fafdff; transition: border 0.2s;}
+        input:focus, select:focus { border: 1.5px solid #0a6ebd; outline: none;}
+        .row-flex { display: flex; flex-wrap: wrap; gap: 28px;}
+        .col { flex: 1 1 270px; min-width: 250px;}
+        .button { background: linear-gradient(90deg, #0a6ebd 60%, #198754 100%); color: #fff; padding: 12px 34px; font-size: 1.13em; border: none; border-radius: 6px; font-family: "Bookman Old Style", serif; cursor: pointer; font-weight: bold; margin-top: 18px; margin-right: 14px; letter-spacing: 0.5px; box-shadow: 0 2px 7px rgba(10, 110, 189, 0.1); transition: background 0.15s;}
+        .button:disabled { background: #ccc !important; cursor: not-allowed; color: #888;}
+        .tabs { margin-top: 36px; border-bottom: 2.5px solid #d0d0d0; display: flex; gap: 14px;}
+        .tab { padding: 13px 28px; cursor: pointer; background: #f3f3f3; border-top-left-radius: 10px; border-top-right-radius: 10px; font-weight: bold; font-family: "Bookman Old Style", serif; border: 1.5px solid #d0d0d0; border-bottom: none; color: #1457a6; font-size: 1.08em;}
+        .tab.active { background: #fff; border-bottom: 2.5px solid #fff; color: #198754; box-shadow: 0 -2px 10px 0 rgba(10, 110, 189, 0.03);}
+        .tab-content { display: none; margin-top: 0; background: #fff; border: 1.5px solid #d0d0d0; border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; padding: 28px 16px 32px 16px; min-height: 280px; overflow-x: auto;}
+        .tab-content.active { display: block;}
+        table { border-collapse: collapse; width: 100%; font-size: 1.03em; margin-top: 6px;}
+        th, td { padding: 10px 7px; border: 1.5px solid #b5cee7; text-align: right; font-family: "Bookman Old Style", serif; background: #fcfcff;}
+        th { background: linear-gradient(90deg, #e7efff 70%, #def1fd 100%); font-weight: bold; text-align: center; white-space: pre-line; word-break: break-word; font-size: 1.08em; color: #0a6ebd; border-bottom: 2.4px solid #b5cee7;}
+        td.text, th.text { text-align: left !important;}
+        .red-bold { color: #d0001c !important; font-weight: bold !important;}
+        .right { text-align: right !important;}
+        .wrap { white-space: pre-line; word-break: break-word;}
+        .download-link { color: #0a6ebd; font-weight: bold; text-decoration: underline; margin-right: 12px; cursor: pointer; font-size: 1.08em;}
+        .download-link:hover { color: #198754; text-decoration: underline wavy;}
+        .note { background: #f6f6d5; border-left: 5px solid #ffe066; padding: 10px 22px; margin-top: 13px; margin-bottom: 20px; font-size: 1.08em; color: #6f5e12;}
+        .footer { margin-top: 50px; text-align: center; font-size: 1.09em; color: #5d5d5d; background: none;}
+        @media (max-width: 900px) {.container {padding: 10px;} .row-flex {flex-direction: column; gap: 0;} h1 {font-size: 2em;} .tab {font-size: 1em; padding: 8px 10px;}}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Purchase vs GSTR-2B Reconciliation</h1>
+    <div class="section">
+        <div class="row-flex">
+            <div class="col">
+                <label for="taxpayerName">Name of Taxpayer</label>
+                <input id="taxpayerName" type="text" placeholder="Enter taxpayer name">
+            </div>
+            <div class="col">
+                <label for="gstin">GSTIN</label>
+                <input id="gstin" type="text" placeholder="Enter GSTIN" maxlength="15">
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="col">
+                <label for="periodFrom">Period From (Month-Year)</label>
+                <input id="periodFrom" type="month">
+            </div>
+            <div class="col">
+                <label for="periodTo">Period To (Month-Year)</label>
+                <input id="periodTo" type="month">
+            </div>
+            <div class="col">
+                <label for="rounding">Rounding Off</label>
+                <select id="rounding">
+                    <option value="0.00">0.00</option>
+                    <option value="1.00" selected>1.00</option>
+                    <option value="2.00">2.00</option>
+                    <option value="5.00">5.00</option>
+                    <option value="10.00">10.00</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <label>Download Data Templates (Excel)</label>
+        <span class="download-link" onclick="downloadTemplates()">Download Templates</span>
+        <div class="note">
+            <b>Instructions:</b>
+            <ul>
+                <li>Download the template and fill your "Books" and "Portal" (GSTR-2B) data as per sample.</li>
+                <li><b>Import the filled Excel file using the button below.</b> The Excel file must contain two separate sheets: "Books" for purchases, and "Portal" for GSTR-2B.</li>
+            </ul>
+        </div>
+        <div class="row-flex">
+            <div class="col">
+                <label for="importFile"><b>Import Excel File (Books & Portal)</b></label>
+                <input type="file" accept=".xls,.xlsx" id="importFile">
+            </div>
+        </div>
+        <div class="note" style="margin-top: 8px;">
+            <b>Note:</b> Upload a single Excel file containing both required sheets ("Books" and "Portal").
+        </div>
+    </div>
+    <div class="section">
+        <button class="button" id="reconcileBtn" onclick="reconcile()" disabled>Reconcile</button>
+        <button class="button" id="downloadBtn" onclick="downloadOutput()" style="background:#198754;display:none">Download Reconciliation Excel</button>
+    </div>
+    <div id="tabsContainer" style="display:none">
+        <div class="tabs" id="tabs"></div>
+        <div id="tabContents"></div>
+    </div>
+    <div class="footer">
+        <b>How to use:</b> Enter details & period, download and fill template, <b>import the Excel file (must have both sheets)</b>, click "Reconcile", view results in tabs, download the professionally formatted Excel output.<br>
+        <span style="font-size:0.96em;">Developed for GST Reconciliation. All calculations & formatting as per your specifications.</span>
+    </div>
+</div>
+<script>
+// --- Utility functions ---
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const totalCols = new Set([
+    "Taxable_Amount","IGST","CGST","SGST","CESS","Total_Tax_Amount",
+    "Taxable_Amount1","IGST1","CGST1","SGST1","CESS1","Total_Tax_Amount1"
+]);
+function formatIndianNumber(num) {
+    if (isNaN(num) || num === null || num === "") return "";
+    num = Number(num);
+    let [int, dec] = num.toFixed(2).split(".");
+    let lastThree = int.substring(int.length - 3);
+    let otherNumbers = int.substring(0, int.length - 3);
+    if (otherNumbers !== '') lastThree = ',' + lastThree;
+    let res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+    return dec ? res + "." + dec : res;
+}
+function formatDate(dt) {
+    if (!dt) return "";
+    if (typeof dt === "number") return excelDateToJSDate(dt);
+    let s = String(dt).trim();
+    let m = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/);
+    if (m) return `${m[1].padStart(2, "0")}-${monthNames[parseInt(m[2], 10)-1]}-${m[3]}`;
+    m = s.match(/^(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})$/);
+    if (m) return `${m[3].padStart(2, "0")}-${monthNames[parseInt(m[2], 10)-1]}-${m[1]}`;
+    let d = new Date(s);
+    if (!isNaN(d)) return `${String(d.getDate()).padStart(2, "0")}-${monthNames[d.getMonth()]}-${d.getFullYear()}`;
+    return "";
+}
+function excelDateToJSDate(serial) {
+    let utc_days = Math.floor(serial - 25569);
+    let utc_value = utc_days * 86400;
+    let date_info = new Date(utc_value * 1000);
+    return `${String(date_info.getDate()).padStart(2, "0")}-${monthNames[date_info.getMonth()]}-${date_info.getFullYear()}`;
+}
+function floatEqual(a, b, round) { return Math.abs(Number(a) - Number(b)) <= round; }
+function parseNumber(val) { if (val === "" || val === null || val === undefined) return 0; return Number(String(val).replace(/,/g, "")) || 0; }
+function normStr(s) { return String(s || "").toUpperCase().replace(/\s+/g, ''); }
+function parseSheet(ws) {
+    if (!ws) return [];
+    const headers = [];
+    ws.getRow(1).eachCell((cell) => headers.push(cell.text.trim()));
+    const data = [];
+    ws.eachRow((row, rowNumber) => {
+        if (rowNumber === 1) return;
+        const obj = {};
+        headers.forEach((h, idx) => { obj[h] = row.getCell(idx + 1).text; });
+        data.push(obj);
+    });
+    return data;
+}
+
+// --- Excel Template Download ---
+async function downloadTemplates() {
+    let booksHeaders = [
+        "Date","Name of Supplier","GSTIN","Vch_Type","Vch_No.","Invoice_No.","Invoice_Date",
+        "Taxable_Amount","IGST","CGST","SGST","CESS","Total_Tax_Amount"
+    ];
+    let booksSample = [
+        ["01/05/2024","ABC Pvt Ltd","22AAAAA0000A1Z5","Purchase","101","INV123","01/05/2024",10000,500,250,250,0,1000]
+    ];
+    let portalHeaders = [
+        "GSTIN","Trade_Name","Invoice_No.","Invoice_Type","Invoice_Date","Invoice_Value","Place_of_supply",
+        "Supply_Attract_Reverse_Charge","Taxable_Amount","IGST","CGST","SGST","CESS",
+        "GSTR-1/_IFF/_GSTR-5_Period","GSTR-1/_IFF/_GSTR-5_Filing_Date",
+        "ITC_Availability","Reason","Applicable_%_of_Tax_Rate","Source","IRN","IRN_Date"
+    ];
+    let portalSample = [
+        ["22AAAAA0000A1Z5","ABC Pvt Ltd","INV123","Regular","01/05/2024",11000,"Chhattisgarh","N",10000,500,250,250,0,"Apr-2024","10/05/2024","Available","",18,"Portal","",""]
+    ];
+    let wb = new ExcelJS.Workbook();
+    wb.addWorksheet("Books").addRow(booksHeaders).parent.addRow(booksSample[0]);
+    wb.addWorksheet("Portal").addRow(portalHeaders).parent.addRow(portalSample[0]);
+    const buf = await wb.xlsx.writeBuffer();
+    saveAs(new Blob([buf]), "GST_Reconciliation_Template.xlsx");
+}
+
+// --- File upload logic (ExcelJS, supports both single-file and two-file mode) ---
+// --- ExcelJS-based file import ---
+// Reads Excel file and returns array of objects for a given sheetName
+let booksData = [], portalData = [], excelLoaded = false;
+
+async function extractSheetsFromFile(file) {
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(await file.arrayBuffer());
+    let foundBooks = null, foundPortal = null;
+    workbook.eachSheet((ws) => {
+        if (ws.name.trim().toLowerCase() === "books") foundBooks = ws;
+        if (ws.name.trim().toLowerCase() === "portal") foundPortal = ws;
+    });
+    // Fallback: if only one sheet, use as per input
+    if (!foundBooks && workbook.getWorksheet(1)) foundBooks = workbook.getWorksheet(1);
+    if (!foundPortal && workbook.getWorksheet(2)) foundPortal = workbook.getWorksheet(2);
+
+    const parseSheet = (ws) => {
+        if (!ws) return [];
+        const headers = [];
+        ws.getRow(1).eachCell((cell) => headers.push(cell.text.trim()));
+        const data = [];
+        ws.eachRow((row, rowNumber) => {
+            if (rowNumber === 1) return;
+            const obj = {};
+            headers.forEach((h, idx) => { obj[h] = row.getCell(idx + 1).text; });
+            data.push(obj);
+        });
+        return data;
+    };
+    return {
+        books: foundBooks ? parseSheet(foundBooks) : [],
+        portal: foundPortal ? parseSheet(foundPortal) : [],
+    };
+}
+
+// Single Import Button Handler
+async function handleSingleFileUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const {books, portal} = await extractSheetsFromFile(file);
+    booksData = books;
+    portalData = portal;
+    checkReadiness();
+}
+
+document.getElementById('importFile').addEventListener('change', handleSingleFileUpload);
+
+// Readiness check
+function checkReadiness() {
+    excelLoaded = booksData.length > 0 && portalData.length > 0;
+    document.getElementById('reconcileBtn').disabled = !excelLoaded;
+    if (excelLoaded) alert("Both Books and Portal data loaded. Ready to Reconcile.");
+}
+
+// Set default periods to last month
+function setDefaultPeriod() {
+    let now = new Date();
+    let y = now.getFullYear();
+    let m = now.getMonth();
+    if (m === 0) { y = y-1; m = 12; }
+    let mm = String(m).padStart(2,'0');
+    document.getElementById('periodFrom').value = `${y}-${mm}`;
+    document.getElementById('periodTo').value = `${y}-${mm}`;
+}
+setDefaultPeriod();
+
+// --- Reconciliation Logic ---
+const tabOrder = [
+    "Books","Portal",
+    "FULLY_MATCHED","PARTIAL_MATCH_INVOICE","PARTIAL_MATCH_DATE",
+    "RCM","MISMATCH","MISMATCH_DATE",
+    "ONLY_BOOKS","ONLY_PORTAL"
+];
+const tabLabels = {
+    "Books":"Books (Imported)",
+    "Portal":"Portal-GSTR-2B (Imported)",
+    "FULLY_MATCHED":"Fully Matched",
+    "PARTIAL_MATCH_INVOICE":"Partial Match (Invoice)",
+    "PARTIAL_MATCH_DATE":"Partial Match (Date)",
+    "RCM":"RCM",
+    "MISMATCH":"Mismatch",
+    "MISMATCH_DATE":"Mismatch (Date)",
+    "ONLY_BOOKS":"Only in Books",
+    "ONLY_PORTAL":"Only in Portal"
+};
+let resultSheets = {}, outputWorkbook = null;
+
+function buildIndex(arr, keyFns) {
+    const idx = {};
+    arr.forEach((row, i) => {
+        for (const fn of keyFns) {
+            const k = fn(row);
+            if (!idx[k]) idx[k] = [];
+            idx[k].push(i);
+        }
+    });
+    return idx;
+}
+function getRowBooks(row) {
+    return {
+        Date: formatDate(row["Date"]),
+        Name_of_Supplier: row["Name of Supplier"]||row["Name_of_Supplier"]||"",
+        GSTIN: (row["GSTIN"]||"").toUpperCase(),
+        Vch_Type: row["Vch_Type"]||"",
+        Vch_No: row["Vch_No."]||"",
+        Invoice_No: String(row["Invoice_No."]||row["Invoice_No"]||"").toUpperCase(),
+        Invoice_Date: formatDate(row["Invoice_Date"]||row["Invoice_Date."]),
+        Taxable_Amount: parseNumber(row["Taxable_Amount"]),
+        IGST: parseNumber(row["IGST"]),
+        CGST: parseNumber(row["CGST"]),
+        SGST: parseNumber(row["SGST"]),
+        CESS: parseNumber(row["CESS"]),
+        Total_Tax_Amount: parseNumber(row["Total_Tax_Amount"])
+    };
+}
+function getRowPortal(row) {
+    return {
+        GSTIN: (row["GSTIN"]||"").toUpperCase(),
+        Trade_Name: row["Trade_Name"]||"",
+        Invoice_No: String(row["Invoice_No."]||row["Invoice_No"]||"").toUpperCase(),
+        Invoice_Type: row["Invoice_Type"]||"",
+        Invoice_Date: formatDate(row["Invoice_Date"]||row["Invoice_Date."]),
+        Invoice_Value: parseNumber(row["Invoice_Value"]),
+        Place_of_supply: row["Place_of_supply"]||"",
+        Supply_Attract_Reverse_Charge: (row["Supply_Attract_Reverse_Charge"]||"").toUpperCase(),
+        Taxable_Amount: parseNumber(row["Taxable_Amount"]),
+        IGST: parseNumber(row["IGST"]),
+        CGST: parseNumber(row["CGST"]),
+        SGST: parseNumber(row["SGST"]),
+        CESS: parseNumber(row["CESS"]),
+        Period: row["GSTR-1/_IFF/_GSTR-5_Period"]||"",
+        Filing_Date: formatDate(row["GSTR-1/_IFF/_GSTR-5_Filing_Date"]),
+        ITC_Availability: row["ITC_Availability"]||"",
+        Reason: row["Reason"]||"",
+        Applicable_Tax_Rate: row["Applicable_%_of_Tax_Rate"]||"",
+        Source: row["Source"]||"",
+        IRN: row["IRN"]||"",
+        IRN_Date: formatDate(row["IRN_Date"]||"")
+    };
+}
+function key1(obj) { return normStr(obj.GSTIN)+"|"+normStr(obj.Invoice_No)+"|"+formatDate(obj.Invoice_Date);}
+function key2(obj) { return normStr(obj.GSTIN)+"|"+normStr(obj.Invoice_No);}
+function key3(obj) { return normStr(obj.GSTIN)+"|"+formatDate(obj.Invoice_Date);}
+
+function reconcile() {
+    if (!excelLoaded) return alert("Please load both Books and Portal data to reconcile.");
+    let rounding = parseFloat(document.getElementById('rounding').value);
+
+    let books = booksData.map(getRowBooks);
+    let portal = portalData.map(getRowPortal);
+
+    // Build indexes only once for faster lookups
+    let portalIndex = buildIndex(portal, [key1, key2, key3]);
+    let booksUsed = Array(books.length).fill(false);
+    let portalUsed = Array(portal.length).fill(false);
+
+    // --- 1. RCM ---
+    let RCM = [];
+    portal.forEach((row, i) => {
+        if ((row.Supply_Attract_Reverse_Charge||"") === "YES" || row.Supply_Attract_Reverse_Charge === "Y") {
+            RCM.push({...row, Remarks:""});
+            portalUsed[i] = true;
+        }
+    });
+
+    // --- Matching logic: combine similar logic into a function ---
+    function matchBooks(findFn, matchFn, markUsed = true) {
+        const result = [];
+        books.forEach((b, i) => {
+            if (booksUsed[i]) return;
+            let idxs = findFn(b);
+            let found = null, pj = -1;
+            for (let j of idxs) {
+                if (portalUsed[j]) continue;
+                let p = portal[j];
+                if (matchFn(b,p)) { found = p; pj = j; break; }
+            }
+            if (found) {
+                if (markUsed) { booksUsed[i] = true; portalUsed[pj] = true; }
+                result.push([b,found,pj]);
+            }
+        });
+        return result;
+    }
+    // Fully matched
+    let FULLY_MATCHED = matchBooks(
+        b => portalIndex[key1(b)]||[],
+        (b,p) => ["Taxable_Amount","IGST","CGST","SGST","CESS"].every(f=>floatEqual(b[f], p[f], rounding))
+    ).map(([b,p]) => ({
+        "Name of Supplier": p.Trade_Name, GSTIN: p.GSTIN, Invoice_No: p.Invoice_No, Invoice_Date: p.Invoice_Date,
+        Taxable_Amount: b.Taxable_Amount, IGST: b.IGST, CGST: b.CGST, SGST: b.SGST, CESS: b.CESS, Total_Tax_Amount: b.Total_Tax_Amount,
+        Period: p.Period, Filing_Date: p.Filing_Date, Remarks: ""
+    }));
+
+    // MISMATCH
+    let MISMATCH = matchBooks(
+        b => portalIndex[key1(b)]||[],
+        (b,p) => !["Taxable_Amount","IGST","CGST","SGST","CESS"].every(f=>floatEqual(b[f], p[f], rounding))
+    ).map(([b,p]) => {
+        let diff = {};
+        ["Taxable_Amount","IGST","CGST","SGST","CESS"].forEach(f=>{ diff["Difference_"+f] = b[f]-p[f]; });
+        diff["Difference_Total_Tax_Amount"] = b.Total_Tax_Amount-(p.IGST+p.CGST+p.SGST+p.CESS);
+        return Object.assign({
+            "Name of Supplier": p.Trade_Name, GSTIN: p.GSTIN, Invoice_No: b.Invoice_No, Invoice_Date: b.Invoice_Date,
+            Taxable_Amount_Books: b.Taxable_Amount, IGST_Books: b.IGST, CGST_Books: b.CGST, SGST_Books: b.SGST, CESS_Books: b.CESS, Total_Tax_Amount_Books: b.Total_Tax_Amount,
+            Taxable_Amount_Portal: p.Taxable_Amount, IGST_Portal: p.IGST, CGST_Portal: p.CGST, SGST_Portal: p.SGST, CESS_Portal: p.CESS, Total_Tax_Amount_Portal: p.IGST+p.CGST+p.SGST+p.CESS,
+            Period: p.Period, Filing_Date: p.Filing_Date
+        }, diff, {Remarks:""});
+    });
+
+    // PARTIAL_MATCH_INVOICE
+    let PARTIAL_MATCH_INVOICE = matchBooks(
+        b => portalIndex[key2(b)]||[],
+        (b,p) => ["Taxable_Amount","IGST","CGST","SGST","CESS"].every(f=>floatEqual(b[f], p[f], rounding))
+    ).map(([b,p]) => ({
+        "Name of Supplier": p.Trade_Name, GSTIN: p.GSTIN, Invoice_No: b.Invoice_No, Invoice_Date_Books: b.Invoice_Date,
+        Taxable_Amount: b.Taxable_Amount, IGST: b.IGST, CGST: b.CGST, SGST: b.SGST, CESS: b.CESS, Total_Tax_Amount: b.Total_Tax_Amount,
+        Invoice_Date_Portal: p.Invoice_Date, Period: p.Period, Filing_Date: p.Filing_Date, Remarks:""
+    }));
+
+    // MISMATCH_DATE
+    let MISMATCH_DATE = matchBooks(
+        b => portalIndex[key2(b)]||[],
+        (b,p) => !["Taxable_Amount","IGST","CGST","SGST","CESS"].every(f=>floatEqual(b[f], p[f], rounding))
+    ).map(([b,p]) => {
+        let diff = {};
+        ["Taxable_Amount","IGST","CGST","SGST","CESS"].forEach(f=>{ diff["Difference_"+f] = b[f]-p[f]; });
+        diff["Difference_Total_Tax_Amount"] = b.Total_Tax_Amount-(p.IGST+p.CGST+p.SGST+p.CESS);
+        return Object.assign({
+            "Name of Supplier": p.Trade_Name, GSTIN: p.GSTIN, Invoice_No_Books: b.Invoice_No, Invoice_Date_Books: b.Invoice_Date,
+            Taxable_Amount_Books: b.Taxable_Amount, IGST_Books: b.IGST, CGST_Books: b.CGST, SGST_Books: b.SGST, CESS_Books: b.CESS, Total_Tax_Amount_Books: b.Total_Tax_Amount,
+            Invoice_No_Portal: p.Invoice_No, Invoice_Date_Portal: p.Invoice_Date,
+            Taxable_Amount_Portal: p.Taxable_Amount, IGST_Portal: p.IGST, CGST_Portal: p.CGST, SGST_Portal: p.SGST, CESS_Portal: p.CESS, Total_Tax_Amount_Portal: p.IGST+p.CGST+p.SGST+p.CESS,
+            Period: p.Period, Filing_Date: p.Filing_Date
+        }, diff, {Remarks:""});
+    });
+
+    // PARTIAL_MATCH_DATE
+    let PARTIAL_MATCH_DATE = matchBooks(
+        b => portalIndex[key3(b)]||[],
+        (b,p) => ["Taxable_Amount","IGST","CGST","SGST","CESS"].every(f=>floatEqual(b[f], p[f], rounding))
+    ).map(([b,p]) => ({
+        "Name of Supplier": p.Trade_Name, GSTIN: p.GSTIN, Invoice_No_Books: b.Invoice_No, Invoice_Date: b.Invoice_Date,
+        Taxable_Amount: b.Taxable_Amount, IGST: b.IGST, CGST: b.CGST, SGST: b.SGST, CESS: b.CESS, Total_Tax_Amount: b.Total_Tax_Amount,
+        Invoice_No_Portal: p.Invoice_No, Period: p.Period, Filing_Date: p.Filing_Date, Remarks:""
+    }));
+
+    // ONLY_BOOKS
+    let ONLY_BOOKS = books.filter((_,i) => !booksUsed[i]).map(b=>({
+        "Name of Supplier": b.Name_of_Supplier, GSTIN: b.GSTIN, Invoice_No: b.Invoice_No, Invoice_Date: b.Invoice_Date,
+        Taxable_Amount: b.Taxable_Amount, IGST: b.IGST, CGST: b.CGST, SGST: b.SGST, CESS: b.CESS, Total_Tax_Amount: b.Total_Tax_Amount, Remarks:""
+    }));
+
+    // ONLY_PORTAL
+    let ONLY_PORTAL = portal.filter((_,j) => !portalUsed[j]).map(p=>({
+        GSTIN: p.GSTIN, Trade_Name: p.Trade_Name, Invoice_No: p.Invoice_No, Invoice_Type: p.Invoice_Type, Invoice_Date: p.Invoice_Date,
+        Taxable_Amount: p.Taxable_Amount, IGST: p.IGST, CGST: p.CGST, SGST: p.SGST, CESS: p.CESS, Period: p.Period, Filing_Date: p.Filing_Date, Remarks:""
+    }));
+
+    resultSheets = { Books: books, Portal: portal, FULLY_MATCHED, PARTIAL_MATCH_INVOICE, PARTIAL_MATCH_DATE, RCM, MISMATCH, MISMATCH_DATE, ONLY_BOOKS, ONLY_PORTAL };
+    showTabs();
+    document.getElementById('downloadBtn').style.display = "inline-block";
+    document.getElementById('downloadBtn').disabled = false;
+    outputWorkbook = null;
+    alert("Reconciliation Completed! View results in tabs below.");
+}
+
+// --- Tab rendering ---
+function showTabs() {
+    let tabsDiv = document.getElementById('tabs');
+    let tabContentsDiv = document.getElementById('tabContents');
+    let tabsHtml = '', tabContentsHtml = '', firstActive = '';
+    for (let tab of tabOrder) {
+        if (!resultSheets[tab]) continue;
+        if (!firstActive) firstActive = tab;
+        tabsHtml += `<div class="tab${tab===firstActive?' active':''}" data-tabname="${tab}" onclick="activateTab('${tab}')">${tabLabels[tab]||tab}</div>`;
+        let tableHtml = renderTable(tab, resultSheets[tab]);
+        tabContentsHtml += `<div class="tab-content${tab===firstActive?' active':''}" id="tab-content-${tab}">${tableHtml}</div>`;
+    }
+    tabsDiv.innerHTML = tabsHtml;
+    tabContentsDiv.innerHTML = tabContentsHtml;
+    document.getElementById('tabsContainer').style.display = "block";
+}
+function activateTab(tab) {
+    document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+    document.querySelector(`.tab[data-tabname="${tab}"]`).classList.add('active');
+    document.getElementById('tab-content-'+tab).classList.add('active');
+}
+
+// --- Table rendering ---
+function renderTable(sheetName, rows) {
+    if (!rows || rows.length === 0) return "<div>No records found.</div>";
+    let cols = Object.keys(rows[0]);
+    let rightCols = cols.filter(c => !/(Date|Invoice_No|Invoice_Type|Trade_Name|Name|Remarks)/i.test(c));
+    let redCols = [];
+    if (["PARTIAL_MATCH_INVOICE"].includes(sheetName)) redCols = ["Invoice_Date_Books","Invoice_Date_Portal"];
+    if (["PARTIAL_MATCH_DATE"].includes(sheetName)) redCols = ["Invoice_No_Books","Invoice_No_Portal"];
+    if (["MISMATCH","MISMATCH_DATE"].includes(sheetName)) redCols = cols.filter(c=>/^Difference_/.test(c) || /Invoice_No_Books|Invoice_Date_Books|Invoice_No_Portal|Invoice_Date_Portal/.test(c));
+    let ths = cols.map(c=>`<th class="wrap${rightCols.includes(c)?' right':' text'}">${c.replace(/_/g," ")}</th>`).join("");
+    let tdsAll = "", totals = {};
+    rows.forEach(row => {
+        let tr = "";
+        cols.forEach(c => {
+            let val = row[c], style = "", cellClass = "";
+            if (rightCols.includes(c) && typeof val === 'number') {
+                val = formatIndianNumber(val); style = 'style="text-align:right"';
+                totals[c] = (totals[c]||0) + parseNumber(row[c]);
+            }
+            if (/(Date)/i.test(c) && val && val.toString().length > 0) {
+                val = formatDate(val); style = 'style="text-align:right"';
+            }
+            if (redCols.includes(c)) cellClass += ' red-bold';
+            tr += `<td class="${cellClass}${rightCols.includes(c)?' right':' text'}" ${style}>${val||""}</td>`;
+        });
+        tdsAll += `<tr>${tr}</tr>`;
+    });
+    let anyTotal = cols.some(c=>totalCols.has(c));
+    let totalRow = "";
+    if (anyTotal) {
+        let tr = "";
+        cols.forEach(c=>{
+            if (totalCols.has(c)) tr += `<td class="right" style="font-weight:bold">${formatIndianNumber(totals[c]||0)}</td>`;
+            else tr += "<td></td>";
+        });
+        totalRow = `<tr style="background:#f9f9be;font-weight:bold"><td colspan="${cols.length}" style="text-align:left;padding-left:9px;font-style:italic;font-size:0.96em"><b>Totals:</b></td></tr><tr>${tr}</tr>`;
+    }
+    return `<table><thead><tr>${ths}</tr></thead><tbody>${tdsAll}${totalRow}</tbody></table>`;
+}
+// --- Optimized and Refactored ExcelJS-based downloadOutput function ---
+async function downloadOutput() {
+    if (!resultSheets) return;
+
+    // Gather meta details
+    const taxpayer = document.getElementById('taxpayerName').value.trim().toUpperCase();
+    const gstin = document.getElementById('gstin').value.trim().toUpperCase();
+    const periodFrom = document.getElementById('periodFrom').value;
+    const periodTo = document.getElementById('periodTo').value;
+    const formatPeriod = (p) =>
+        p ? (new Date(p + "-01")).toLocaleString("en-IN", { month: "short", year: "numeric" }).replace(" ", "-") : "";
+    const periodLine = `Period: ${formatPeriod(periodFrom)} to ${formatPeriod(periodTo)}`;
+
+    // Fixed width mapping (header as per Excel display)
+    const fixedWidths = {
+        "Date": 16, "Name of Supplier": 35, "G S T I N": 26, "Vch Type": 18, "Vch No": 25, "Invoice No": 25, "Invoice Date": 16,
+        "Taxable Amount": 18, "I G S T": 18, "C G S T": 18, "S G S T": 18, "C E S S": 18, "Total Tax Amount": 18, "Remarks": 35,
+        "Trade Name": 35, "Invoice Type": 12, "Invoice Value": 18, "Place of supply": 12, "Supply Attract Reverse Charge": 16,
+        "Period": 12, "Filing Date": 16, "I T C Availability": 12, "Reason": 12, "Applicable Tax Rate": 12, "Source": 12,
+        "I R N": 12, "I R N Date": 16,
+        "Invoice Date Books": 16, "Invoice Date Portal": 16, "Invoice No Books": 25, "Invoice No Portal": 25,
+        "Taxable Amount Books": 18, "I G S T Books": 18, "C G S T Books": 18, "S G S T Books": 18, "C E S S Books": 18, "Total Tax Amount Books": 18,
+        "Taxable Amount Portal": 18, "I G S T Portal": 18, "C G S T Portal": 18, "S G S T Portal": 18, "C E S S Portal": 18, "Total Tax Amount Portal": 18,
+        "Difference Taxable Amount": 18, "Difference I G S T": 18, "Difference C G S T": 18, "Difference S G S T": 18, "Difference C E S S": 18, "Difference Total Tax Amount": 18
+    };
+
+    // Columns to be formatted in Indian Number Format
+    const indianNumberCols = new Set([
+        "Taxable Amount", "I G S T", "C G S T", "S G S T", "C E S S", "Total Tax Amount", "Invoice Value",
+        "Taxable Amount Books", "I G S T Books", "C G S T Books", "S G S T Books", "C E S S Books", "Total Tax Amount Books",
+        "Taxable Amount Portal", "I G S T Portal", "C G S T Portal", "S G S T Portal", "C E S S Portal", "Total Tax Amount Portal",
+        "Difference Taxable Amount", "Difference I G S T", "Difference C G S T", "Difference S G S T", "Difference C E S S", "Difference Total Tax Amount"
+    ]);
+
+    const getIndianNumFmt = () => '#,##,##0.00';
+    const normalizeHeader = (header) => header.replace(/\s+/g, "").replace(/_/g, "").toLowerCase();
+
+    // Helper: prettify column header for display in Excel
+    function prettifyHeader(h) {
+        return h.replace(/_/g, ' ')
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/\s+/g, ' ')
+            .replace(/\bGst\b/i, 'GST')
+            .replace(/\bIgst\b/i, 'I G S T')
+            .replace(/\bCgst\b/i, 'C G S T')
+            .replace(/\bSgst\b/i, 'S G S T')
+            .replace(/\bCess\b/i, 'C E S S')
+            .replace(/\bItc\b/i, 'I T C')
+            .replace(/\bIrn\b/i, 'I R N')
+            .trim();
+    }
+
+    // Identify which columns are total columns
+    const isTotalCol = (() => {
+        const arr = [
+            "Taxable_Amount", "IGST", "CGST", "SGST", "CESS", "Total_Tax_Amount",
+            "Taxable_Amount1", "IGST1", "CGST1", "SGST1", "CESS1", "Total_Tax_Amount1"
+        ];
+        return new Set(arr);
+    })();
+
+    let workbook = new ExcelJS.Workbook();
+    workbook.creator = "GST Reconciliation Tool";
+    workbook.created = new Date();
+
+    for (let tab of tabOrder) {
+        const rows = resultSheets[tab];
+        if (!rows || rows.length === 0) continue;
+
+        const cols = Object.keys(rows[0]);
+        const displayHeaders = cols.map(prettifyHeader);
+        const sheet = workbook.addWorksheet(tab);
+
+        // Header blocks (Title, GSTIN, Period)
+        [
+            { val: taxpayer, font: { name: "Bookman Old Style", size: 22, bold: true, color: { argb: "FF08509c" } } },
+            { val: "GSTIN: " + gstin, font: { name: "Bookman Old Style", size: 16, bold: true, color: { argb: "FF1457a6" } } },
+            { val: periodLine, font: { name: "Bookman Old Style", size: 14, bold: true, color: { argb: "FF174c75" } } }
+        ].forEach((h, idx) => {
+            sheet.mergeCells(idx + 1, 1, idx + 1, cols.length);
+            let cell = sheet.getCell(idx + 1, 1);
+            cell.value = h.val;
+            cell.font = h.font;
+            cell.alignment = { vertical: "middle", horizontal: "center" };
+        });
+        sheet.addRow([]);
+
+        // Table Header Row
+        let headerRow = sheet.addRow(displayHeaders);
+        // Calculate header row height based on max header lines
+        headerRow.height = Math.max(36, ...displayHeaders.map((header, i) => {
+            let colWidth = fixedWidths[header] || 12;
+            return 18 * Math.ceil(header.length / Math.max(1, Math.floor(colWidth * 1.2)));
+        }));
+        headerRow.eachCell((cell) => {
+            cell.font = { name: "Bookman Old Style", size: 12, bold: true, color: { argb: "FF08509c" } };
+            cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFE7EFFF" } };
+            cell.border = { top: { style: "thin" }, left: { style: "thin" }, right: { style: "thin" }, bottom: { style: "thin" } };
+            cell.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+        });
+
+        // Precompute indices for special columns
+        const nameSupplierColIdx = displayHeaders.findIndex(c => normalizeHeader(c) === "nameofsupplier");
+        const tradeNameColIdx = displayHeaders.findIndex(c => normalizeHeader(c) === "tradename");
+
+        // Prepare red highlight columns for certain tabs, once
+        let redCols = [];
+        if (tab === "PARTIAL_MATCH_INVOICE") redCols = ["Invoice_Date_Books", "Invoice_Date_Portal"];
+        else if (tab === "PARTIAL_MATCH_DATE") redCols = ["Invoice_No_Books", "Invoice_No_Portal"];
+        else if (tab === "MISMATCH" || tab === "MISMATCH_DATE") {
+            redCols = cols.filter(cn => /^Difference_/.test(cn) || /Invoice_No_Books|Invoice_Date_Books|Invoice_No_Portal|Invoice_Date_Portal/.test(cn));
+        }
+
+        // Data rows + totals
+        let totals = {};
+        rows.forEach(r => {
+            let arr = cols.map((c, ix) => {
+                let headerName = displayHeaders[ix];
+                let val = r[c];
+                if (typeof val === "number" && indianNumberCols.has(headerName)) return val;
+                if (/(Date)/i.test(headerName) && val) return formatDate(val);
+                return val;
+            });
+            cols.forEach((c, ix) => {
+                if (typeof r[c] === "number" && isTotalCol.has(c)) totals[c] = (totals[c] || 0) + r[c];
+            });
+
+            let dataRow = sheet.addRow(arr);
+            dataRow.height = 18;
+            dataRow.eachCell((cell, colNumber) => {
+                const colIdx = colNumber - 1;
+                const colName = displayHeaders[colIdx];
+
+                if (typeof arr[colIdx] === "number" && indianNumberCols.has(colName)) {
+                    cell.numFmt = getIndianNumFmt();
+                    cell.alignment = { vertical: "middle", horizontal: "right" };
+                } else if (/(Date)/i.test(colName)) {
+                    cell.alignment = { vertical: "middle", horizontal: "right" };
+                } else {
+                    cell.alignment = { vertical: "middle", horizontal: "left" };
+                }
+                // Wrap text for "Name of Supplier"/"Trade Name" if long
+                if ((colIdx === nameSupplierColIdx || colIdx === tradeNameColIdx) && typeof cell.value === "string" && cell.value.length > 25) {
+                    cell.alignment = { ...cell.alignment, wrapText: true };
+                }
+                cell.font = { name: "Bookman Old Style", size: 11, color: { argb: "FF222222" } };
+                cell.border = { top: { style: "thin" }, left: { style: "thin" }, right: { style: "thin" }, bottom: { style: "thin" } };
+                // Highlight mismatches
+                if (redCols.length && redCols.includes(cols[colIdx])) {
+                    cell.font = { ...cell.font, color: { argb: "FFD0001C" }, bold: true }
+                }
+            });
+        });
+
+        // Totals row
+        if (cols.some(c => isTotalCol.has(c))) {
+            sheet.addRow([]);
+            let totalArr = cols.map((c, ix) => isTotalCol.has(c) ? (totals[c] || 0) : "");
+            let totalHeaderRow = sheet.addRow([]);
+            totalHeaderRow.height = 18;
+            totalHeaderRow.getCell(1).value = "Totals:";
+            totalHeaderRow.getCell(1).font = { bold: true, color: { argb: "FF0a6ebd" }, name: "Bookman Old Style" };
+            totalHeaderRow.getCell(1).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF9F9BE" } };
+            totalHeaderRow.getCell(1).alignment = { vertical: "middle", horizontal: "left", wrapText: true };
+            sheet.mergeCells(totalHeaderRow.number, 1, totalHeaderRow.number, cols.length);
+
+            let totalRow = sheet.addRow(totalArr);
+            totalRow.height = 18;
+            totalRow.eachCell((cell, colNumber) => {
+                const colIdx = colNumber - 1;
+                const colName = displayHeaders[colIdx];
+                if (typeof totalArr[colIdx] === "number" && indianNumberCols.has(colName)) {
+                    cell.numFmt = getIndianNumFmt();
+                    cell.alignment = { vertical: "middle", horizontal: "right" };
+                } else if (/(Date)/i.test(colName)) {
+                    cell.alignment = { vertical: "middle", horizontal: "right" };
+                } else {
+                    cell.alignment = { vertical: "middle", horizontal: "left" };
+                }
+                cell.font = { name: "Bookman Old Style", bold: true, color: { argb: "FF0a6ebd" } };
+                cell.border = { top: { style: "thin" }, left: { style: "thin" }, right: { style: "thin" }, bottom: { style: "thin" } };
+            });
+        }
+
+        // Set column widths
+        displayHeaders.forEach((header, i) => {
+            sheet.getColumn(i + 1).width = fixedWidths[header.trim()] || 12;
+        });
+
+        // Enforce min row heights
+        sheet.eachRow((row, rowNumber) => {
+            row.height = (rowNumber === headerRow.number) ? Math.max(row.height || 36, 36) : Math.max(row.height || 18, 18);
+        });
+    }
+
+    // Export to file
+    const buf = await workbook.xlsx.writeBuffer();
+    saveAs(new Blob([buf]), "GST_Reconciliation_Output.xlsx");
+}
+</script>
+</body>
+</html>
