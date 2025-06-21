@@ -1,0 +1,5088 @@
+{
+  "Summary": [
+    [
+      {
+       "coordinate": "A1","value": "GST RECONCILIATION SUMMARY","font": {"name": "Bookman Old Style","size": "20.0","bold": "True", "color": "FFFFFFFF"},
+        "fill": {"fill_type": "solid","fgColor": "FFED7D31","bgColor": "00000000"},
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      {
+        CELL A1: H1 TO BE MERGED
+
+        "coordinate": "A2",
+        "value": "TAXPAYER: "&taxpayer,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "13.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      {
+ CELL A2: H2 TO BE MERGED       
+
+        "coordinate": "A3",
+        "value": "GSTIN: "&gstin,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "13.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      {
+        
+      {
+        "coordinate": "A4",
+        "value": "Period: ${formatPeriod(periodFrom)} to ${formatPeriod(periodTo)}",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "13.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      {
+        CELL A4:H4 TO BE MERGED
+       {
+        "coordinate": "A6",
+        "value": "SHEET INDEX & TOTALS",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "14.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      {
+CELL A6:H6 TO BE MERGED
+
+        "coordinate": "A7",
+        "value": "Sheet Name",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B7",
+        "value": "No. of Invoices",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "C7",
+        "value": "Taxable Amount",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "D7",
+        "value": "IGST",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "E7",
+        "value": "CGST",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "F7",
+        "value": "SGST",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "G7",
+        "value": "CESS",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "H7",
+        "value": "Total Tax Amount",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFD9E1F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "True"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      }
+    ],
+    [
+      {
+        "coordinate": "A8",
+        "value": "Books Records",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "13.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+
+CELL A8:H8 TO BE MERGED
+       {
+        "coordinate": "A9",
+        "value": "Fully Matched",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      
+{
+        "coordinate": "B9",
+        "value": Count of all records of FULLY_MATCHED
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C9",
+        "value": Total of Taxable Amount of FULLY_MATCHED
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D9",
+        "value": Total of IGST of FULLY_MATCHED,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E9",
+        "value": Total of CGST of FULLY_MATCHED,   
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F9",
+        "value": Total of SGST of FULLY_MATCHED,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G9",
+        "value": Total of CESS of FULLY_MATCHED,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H9",
+        "formula": "=SUM(D9:G9)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A10",
+        "value": "Partial Match Invoice",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B10",
+        "value": Count of all records of PARTIAL_MATCH_INVOICE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C10",
+        "value": Total of Taxable Amount of PARTIAL_MATCH_INVOICE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D10",
+        "value": Total of IGST of PARTIAL_MATCH_INVOICE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E10",
+        "value": Total of CGST of PARTIAL_MATCH_INVOICE
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F10",
+        "value": Total of SGST of PARTIAL_MATCH_INVOICE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G10",
+        "value": Total of CESS of PARTIAL_MATCH_INVOICE,
+      
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H10",
+        
+        "formula": "=SUM(D10:G10)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A11",
+        "value": "Partial Match Date",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B11",
+        "value": Count of all records of PARTIAL_MATCH_DATE,
+       
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C11",
+        "value": Total of Taxable Amount of PARTIAL_MATCH_ DATE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D11",
+        "value": Total of IGST of PARTIAL_MATCH_ DATE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E11",
+        "value": Total of CGST of PARTIAL_MATCH_ DATE,
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F11",
+        "value": Total of SGST of PARTIAL_MATCH_ DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G11",
+        "value": Total of CESS of PARTIAL_MATCH_ DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H11",
+        
+        "formula": "=SUM(D11:G11)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A12",
+        "value": "Mismatch",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B12",
+        "value": Count of all records of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C12",
+        "value": Total of Taxable Amount Books of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D12",
+        "value": Total of IGST Books of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E12",
+        "value": Total of CGST Books of MISMATCH ,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F12",
+        "value":Total of SGST Books of MISMATCH ,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G12",
+        "value": Total of CESS Books of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H12",
+        "formula": "=SUM(D12:G12)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A13",
+        "value": "Mismatch Date",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B13",
+        "value": Count of all records of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C13",
+        "value": Total of Taxable Amount Books of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D13",
+        "value": Total of IGST Books of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E13",
+        "value": Total of CGST Books of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F13",
+        "value": Total of SGST Books of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G13",
+        "value": Total of CESS Books of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H13",
+        "formula": "=SUM(D13:G13)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A14",
+        "value": "Only Books",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B14",
+        "value": Count of all records of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C14",
+        "value": Total of Taxable Amount of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D14",
+        "value": Total of IGST of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E14",
+        "value": Total of CGST of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F14",
+        "value": Total of SGST of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G14",
+        "value": Total of CESS of ONLY_BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H14",
+        "formula": "=SUM(D14:G14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A15",
+        "value": "Total",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B15",
+        "formula": "=SUM(B9:B14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C15",
+        "formula": "=SUM(C9:C14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D15",
+        "formula": "=SUM(D9:D14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E15",
+        "formula": "=SUM(E9:E14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F15",
+        "formula": "=SUM(F9:F14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G15",
+        "formula": "=SUM(G9:G14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H15",
+        "formula": "=SUM(H9:H14)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A16",
+        "value": "Books Records Total",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B16",
+        "value": Count of all records of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C16",
+        "value": Total of Taxable Amount of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D16",
+        "value": Total of IGST of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E16",
+        "value": Total of CGST of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F16",
+        "value": Total of SGST of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G16",
+        "value": Total of CESS of BOOKS,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H16",
+        "formula": "=SUM(D16:G16)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A17",
+        "value": "Difference",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B17",
+        "formula": "=B15-B16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C17",
+        "formula": "=C15-C16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D17",
+        "formula": "=D15-D16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E17",
+        "formula": "=E15-E16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F17",
+        "formula": "=F15-F16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G17",
+        "formula": "=G15-G16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H17",
+        "formula": "=H15-H16",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      }
+      {
+        "coordinate": "A19",
+        "value": "Portal Records",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "13.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+      
+CELL A19:H19 TO BE MERGED
+
+      {
+        "coordinate": "A20",
+        "value": "Fully Matched",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B20",
+        "formula": "=B9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C20",
+        "formula": "=C9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D20",
+        "formula": "=D9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E20",
+        "value": "=E9",
+        "formula": "=E9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F20",
+        "formula": "=F9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G20",
+        "formula": "=G9",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H20"",
+        "formula": "=SUM(C20:G20)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A21",
+        "value": "Partial Match Invoice",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B21",
+        "formula": "=B10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C21",
+        "formula": "=C10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D21",
+        "formula": "=D10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E21",
+        "formula": "=E10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F21",
+        "formula": "=F10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G21",
+        "formula": "=G10",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H21",
+        "formula": "=SUM(C21:G21)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A22",
+        "value": "Partial Match Date",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B22",
+        "formula": "=B11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C22",
+        "formula": "=C11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D22",
+        "formula": "=D11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E22",
+        "formula": "=E11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F22",
+        "formula": "=F11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G22",
+        "formula": "=G11",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H22",
+        "formula": "=SUM(C22:G22)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A23",
+        "value": "Mismatch",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B23",
+        "formula": =B12,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C23",
+        "value": Total of Taxable Amount Portal of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D23",
+        "value": Total of IGST Portal of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E23",
+        "value": Total of CGST Portal of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F23",
+        "value": Total of SGST Portal of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G23",
+        "value": Total of CESS Portal of MISMATCH,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H23",
+        "formula": "=SUM(C23:G23)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A24",
+        "value": "Mismatch Date",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B24",
+        "formula": =B13,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C24",
+        "value": Total of Taxable Amount Portal of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D24",
+        "value": Total of IGST Portal of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E24",
+        "value": Total of CGST Portal of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F24",
+        "value": Total of SGST Portal of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G24",
+        "value": Total of CESS Portal of MISMATCH_DATE,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H24",
+        "formula": "=SUM(C24:G24)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A25",
+        "value": "RCM",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B25",
+        "value": Count of all records of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C25",
+        "value": Total of Taxable Amount Portal of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D25",
+        "value": Total of IGST Portal of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E25",
+        "value": Total of CGST Portal of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F25",
+        "value": Total of SGST Portal of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G25",
+        "value": Total of CESS Portal of RCM,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H25",
+        "formula": "=SUM(C25:G25)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A26",
+        "value": "Only Portal",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "General"
+      },
+      {
+        "coordinate": "B26",
+        "value": Count of all records of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C26",
+        "value": Total of Taxable Amount Portal of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D26",
+        "value": Total of IGST Portal of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E26",
+        "value": Total of CGST Portal of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F26",
+        "value": Total of SGST Portal of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G26",
+        "value": Total of CESS Portal of ONLY_PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFF2F2F2",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H26",
+        "value": "=SUM(C26:G26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFFFFFF",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A27",
+        "value": "Total",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B27",
+        "formula": "=SUM(B20:B26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C27",
+        "formula": "=SUM(C20:C26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D27",
+        "formula": "=SUM(D20:D26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E27",
+        "formula": "=SUM(E20:E26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F27",
+        "formula": "=SUM(F20:F26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G27",
+        "formula": "=SUM(G20:G26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H27",
+        "formula": "=SUM(H20:H26)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FF4472C4",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A28",
+        "value": "Portal Records Total",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B28",
+        "value": Count of all records of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C28",
+        "value": Total of Taxable Amount Portal of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D28",
+        "value": Total of IGST Portal of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E28",
+        "value": Total of CGST Portal of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F28",
+        "value": Total of SGST Portal of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G28",
+        "value": Total of CESS Portal of PORTAL,
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H28",
+        "formula": "=SUM(D28:G28)",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "thin",
+          "right": "thin"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+      {
+        "coordinate": "A29",
+        "value": "Difference",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "B29",
+        "formula": "=B27-B28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "0"
+      },
+      {
+        "coordinate": "C29",
+        "formula": "=C27-C28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "D29",
+        "formula": "=D27-D28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "E29",
+        "formula": "=E27-E28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "F29",
+        "formula": "=F27-F28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "G29",
+        "formula": "=G27-G28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      },
+      {
+        "coordinate": "H29",
+        "formula": "=H27-H28",
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "12.0",
+          "bold": "True",
+          
+          
+          "color": "Values must be of type <class 'str'>"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFFF0000",
+          "bgColor": "None"
+        },
+        "alignment": {
+          "horizontal": "right",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "thin",
+          "bottom": "thin",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "#,##0.00"
+      }
+    ],
+    [
+            {
+        "coordinate": "A31",
+        "value": "INSTRUCTIONS:",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "14.0",
+          "bold": "True",
+          
+          
+          "color": "FFFFFFFF"
+        },
+        "fill": {
+          "fill_type": "solid",
+          "fgColor": "FFED7D31",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+     
+CELL A31:H31 TO BE MERGED
+  {
+        "coordinate": "A32",
+        "value": "- Each tab contains a different reconciliation or summary.",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "None",
+          "fgColor": "00000000",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+       {
+        "coordinate": "A33",
+        "value": "- See above for each sheet's entry and its overall totals.",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "None",
+          "fgColor": "00000000",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+       {
+        "coordinate": "A34",
+        "value": "- This Sheet is auto-generated with summary & links.",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "None",
+          "fgColor": "00000000",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+       {
+        "coordinate": "A35",
+        "value": "- Navigate using the sheet tabs below.",
+        
+        "font": {
+          "name": "Bookman Old Style",
+          "size": "11.0",
+          "bold": "False",
+          
+          
+          "color": "FF222222"
+        },
+        "fill": {
+          "fill_type": "None",
+          "fgColor": "00000000",
+          "bgColor": "00000000"
+        },
+        "alignment": {
+          "horizontal": "left",
+          "vertical": "center",
+          "wrap_text": "None"
+        },
+        "border": {
+          "top": "None",
+          "bottom": "None",
+          "left": "None",
+          "right": "None"
+        },
+        "number_format": "General"
+      },
+         ]
+  ]
+}
